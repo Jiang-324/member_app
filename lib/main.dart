@@ -1,8 +1,14 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:member/screens/email_auth_screen.dart';
+import 'package:member/screens/phone_auth_screen.dart';
+import 'screens/edit_profile_page.dart';
+import 'screens/application_submitted_screen.dart';
 import 'screens/home_page.dart';
 import 'screens/membership_form_screen.dart';
 import 'screens/news_feed_screen.dart';
 import 'screens/qr_code_screen.dart';
+import 'screens/choiceScreen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 
@@ -30,16 +36,19 @@ class MemberApp extends StatelessWidget {
       ),
       initialRoute: '/',
       routes: {
-        '/': (context) => const HomePage(),
+        // '/': (context) => ChoiceScreen(),
+        '/phoneAuth': (context) => PhoneAuthScreen(),
+        '/emailAuth': (context) => EmailAuthScreen(),
         '/news': (context) => const NewsPage(),
-        '/apply': (context) => const MembershipFormPage(),
+        '/homepage': (context) => const HomePage(),
+        '/membershipForm': (context) => const MembershipFormPage(),
         '/qrcode': (context) => const QRCodePage(),
+        '/applicationSubmitted': (context) => const ApplicationSubmittedScreen(),
+        '/editProfile': (context) => const EditProfilePage(),
 
       },
+      home: ChoiceScreen(),
 
     );
-    // TODO: implement build
-    throw UnimplementedError();
   }
-
 }

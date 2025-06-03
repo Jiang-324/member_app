@@ -9,12 +9,12 @@ class NewsPage extends StatelessWidget {
     final List<Map<String, String>> newsList = [
       {
         'title': 'Community Meetup this Weekend',
-        'image': 'https://via.placeholder.com/400x200',
+        'image': 'https://drive.google.com/uc?export=view&id=1BZBPTqunBVBTaOTAa5tNZuEHkDVbbIt6',
         'body' : 'Join us at the central hall for our annual meetup...'
       },
       {
         'title' : 'New Membership Benefits Announced',
-        'image' : 'https://via.placeholder.com/400x200',
+        'image' : 'https://drive.google.com/uc?export=view&id=1DSrFK-dKYU3ATnzmlqWZxTeWTJwMmwcS',
         'body' : 'We’ve partnered with local businesses to offer discounts...'
       },
     ];

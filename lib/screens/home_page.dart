@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'membership_form_screen.dart';
 
 class HomePage extends StatefulWidget {
@@ -47,20 +48,20 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: const Text('Member App'),
         centerTitle: true,
+        actions: [
+          IconButton(
+              onPressed: () async {
+                await FirebaseAuth.instance.signOut();
+                Navigator.pushReplacementNamed(context, '/');
+              },
+              icon: Icon(Icons.logout)
+          )
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: ListView(
           children: [
-            ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => MembershipFormPage()),
-                  );
-                } ,
-                child: Text('Apply for Membership')
-            ),
             _MenuButton(
               icon: Icons.article,
               label: 'New Feed',
@@ -69,7 +70,7 @@ class _HomePageState extends State<HomePage> {
             _MenuButton(
               icon: Icons.edit_document,
               label: 'Apply for Membership',
-              onTap: () => Navigator.pushNamed(context, '/apply'),
+              onTap: () => Navigator.pushNamed(context, '/membershipForm'),
             ),
             _MenuButton(
               icon: Icons.qr_code,
